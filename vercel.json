@@ -1,1 +1,9 @@
-{"outputDirectory": "."}
+{
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/quickstart",
+      "destination": "/quickstart.html"
+    }
+  ]
+}
