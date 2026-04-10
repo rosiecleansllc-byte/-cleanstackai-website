@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CleanStack AI — A cleaning business that runs itself starts with one system.</title>
+<title>CleanAIOS — AI Systems for Cleaning Business Owners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 /* ─── TOKENS ─── */
 :root {
-  --ink:        #0c0b09;
-  --ink-soft:   #1a1814;
-  --paper:      #f7f4ee;
-  --cream:      #ede9e0;
-  --warm:       #e5dfd3;
-  --gold:       #b07d3a;
-  --gold-light: #c9973f;
-  --gold-pale:  rgba(176,125,58,0.10);
-  --gold-line:  rgba(176,125,58,0.25);
-  --muted:      #6b6154;
-  --faint:      #9a9080;
-  --border:     #ddd8ce;
-  --white:      #faf7f2;
+  --ink:        #111111;
+  --ink-soft:   #1a1a1a;
+  --paper:      #ffffff;
+  --cream:      #f5f5f5;
+  --warm:       #eeeeee;
+  --teal:       #75d3df;
+  --teal-light: #8ddde7;
+  --teal-pale:  rgba(117,211,223,0.12);
+  --teal-line:  rgba(117,211,223,0.35);
+  --muted:      #555555;
+  --faint:      #888888;
+  --border:     #e0e0e0;
+  --white:      #ffffff;
 }
 
 /* ─── RESET ─── */
@@ -34,15 +34,52 @@ body {
   overflow-x: hidden;
 }
 
-
+/* ─── EDIT BANNER ─── */
+.edit-banner {
+  background: var(--teal);
+  border-bottom: 1px solid #2a2620;
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.edit-banner-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.6);
+}
+.edit-pills {
+  display: flex;
+  gap: 8px;
+}
+.edit-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.15);
+  color: rgba(0,0,0,0.7);
+  padding: 4px 10px;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.edit-pill:hover { background: rgba(0,0,0,0.15); }
 
 /* ─── NAV ─── */
 .nav {
   position: fixed;
-  top: 0;
+  top: 41px;
   left: 0; right: 0;
   z-index: 90;
-  background: rgba(247,244,238,0.94);
+  background: rgba(255,255,255,0.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 0 52px;
@@ -61,7 +98,7 @@ body {
   letter-spacing: 0.02em;
   text-decoration: none;
 }
-.nav-brand span { color: var(--gold); }
+.nav-brand span { color: var(--teal); font-style: italic; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -86,11 +123,11 @@ body {
   font-weight: 500;
   transition: background 0.2s !important;
 }
-.nav-cta:hover { background: var(--gold) !important; color: var(--white) !important; }
+.nav-cta:hover { background: var(--teal) !important; color: #111111 !important; }
 
 /* ─── SECTION WRAPPER ─── */
 .section-wrap {
-  padding-top: 60px;
+  padding-top: 101px; /* nav + edit banner */
 }
 
 /* ─── ① HERO ─── */
@@ -103,7 +140,7 @@ body {
   overflow: hidden;
 }
 .hero-left {
-  background: var(--ink-soft);
+  background: var(--teal);
   padding: 96px 64px 80px 72px;
   display: flex;
   flex-direction: column;
@@ -116,7 +153,7 @@ body {
   position: absolute;
   bottom: -120px; left: -120px;
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(176,125,58,0.12) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 65%);
   pointer-events: none;
 }
 .hero-eyebrow {
@@ -124,7 +161,7 @@ body {
   font-size: 10px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: rgba(0,0,0,0.55);
   margin-bottom: 24px;
   opacity: 0;
   animation: fadeUp 0.6s ease 0.1s forwards;
@@ -133,7 +170,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(42px, 5vw, 68px);
   font-weight: 300;
-  color: #f5f0e8;
+  color: #111111;
   line-height: 1.08;
   margin-bottom: 28px;
   opacity: 0;
@@ -141,11 +178,11 @@ body {
 }
 .hero-h1 em {
   font-style: italic;
-  color: var(--gold-light);
+  color: #ffffff;
 }
 .hero-sub {
   font-size: 16px;
-  color: #7a7060;
+  color: rgba(0,0,0,0.6);
   line-height: 1.75;
   max-width: 440px;
   margin-bottom: 48px;
@@ -161,8 +198,8 @@ body {
   animation: fadeUp 0.6s ease 0.4s forwards;
 }
 .btn-primary {
-  background: var(--gold);
-  color: #fff;
+  background: #111111;
+  color: #ffffff;
   padding: 14px 28px;
   border-radius: 3px;
   font-size: 13px;
@@ -172,9 +209,9 @@ body {
   transition: background 0.2s, transform 0.15s;
   display: inline-block;
 }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-primary:hover { background: #333333; transform: translateY(-1px); }
 .btn-ghost {
-  color: #8a8070;
+  color: rgba(0,0,0,0.65);
   font-size: 13px;
   text-decoration: none;
   letter-spacing: 0.03em;
@@ -182,11 +219,11 @@ body {
   padding-bottom: 2px;
   transition: color 0.2s, border-color 0.2s;
 }
-.btn-ghost:hover { color: #f5f0e8; border-color: #8a8070; }
+.btn-ghost:hover { color: #ffffff; border-color: #8a8070; }
 
 .hero-right {
-  background: var(--cream);
-  padding: 96px 72px 80px 64px;
+  background: #ffffff;
+  padding: 96px 72px 80px 64px; border-left: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -196,7 +233,7 @@ body {
   content: '"';
   font-family: 'Cormorant Garamond', serif;
   font-size: 300px;
-  color: rgba(176,125,58,0.06);
+  color: rgba(117,211,223,0.15);
   position: absolute;
   top: -40px;
   right: 20px;
@@ -233,7 +270,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 48px;
   font-weight: 300;
-  color: var(--gold);
+  color: var(--teal);
   line-height: 1;
   min-width: 90px;
 }
@@ -245,7 +282,7 @@ body {
 .stat-desc strong { color: var(--ink); display: block; font-weight: 500; font-size: 15px; margin-bottom: 3px; }
 
 .hero-origin {
-  background: var(--ink-soft);
+  background: var(--teal-pale); border: 1px solid var(--teal-line);
   border-radius: 4px;
   padding: 20px 24px;
   opacity: 0;
@@ -256,7 +293,7 @@ body {
   font-size: 16px;
   font-style: italic;
   font-weight: 300;
-  color: #c8bfb0;
+  color: #222222;
   line-height: 1.65;
 }
 .hero-origin-attr {
@@ -264,7 +301,7 @@ body {
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--teal);
   margin-top: 12px;
 }
 
@@ -287,7 +324,7 @@ body {
   font-size: 9px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--teal);
   margin-bottom: 16px;
 }
 .sec-h2 {
@@ -298,7 +335,7 @@ body {
   margin-bottom: 24px;
   color: var(--ink);
 }
-.sec-h2 em { font-style: italic; color: var(--gold); }
+.sec-h2 em { font-style: italic; color: var(--teal); }
 .sec-body {
   font-size: 15px;
   color: var(--muted);
@@ -312,7 +349,7 @@ body {
   font-weight: 300;
   color: var(--ink);
   line-height: 1.6;
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--teal);
   padding-left: 20px;
   margin-top: 32px;
 }
@@ -336,8 +373,8 @@ body {
 .pain-icon {
   width: 32px;
   height: 32px;
-  background: var(--gold-pale);
-  border: 1px solid var(--gold-line);
+  background: var(--teal-pale);
+  border: 1px solid var(--teal-line);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -348,7 +385,7 @@ body {
 .pain-icon span {
   width: 6px;
   height: 6px;
-  background: var(--gold);
+  background: var(--teal);
   border-radius: 50%;
   display: block;
 }
@@ -358,7 +395,7 @@ body {
 
 /* ─── ③ AUTHORITY ─── */
 .authority {
-  background: var(--ink-soft);
+  background: #f8fefe;
   padding: 120px 72px;
   position: relative;
   overflow: hidden;
@@ -368,7 +405,7 @@ body {
   position: absolute;
   top: -200px; right: -200px;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(176,125,58,0.08) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(117,211,223,0.2) 0%, transparent 65%);
   pointer-events: none;
 }
 .authority-inner {
@@ -379,12 +416,12 @@ body {
   gap: 80px;
   align-items: center;
 }
-.authority-left .sec-eyebrow { color: var(--gold-light); }
-.authority-left .sec-h2 { color: #f5f0e8; }
-.authority-left .sec-body { color: #7a7060; }
+.authority-left .sec-eyebrow { color: var(--teal); }
+.authority-left .sec-h2 { color: #ffffff; }
+.authority-left .sec-body { color: var(--muted); }
 .authority-body-main {
   font-size: 15px;
-  color: #7a7060;
+  color: var(--muted);
   line-height: 1.8;
   margin-bottom: 20px;
 }
@@ -393,16 +430,16 @@ body {
   font-size: 20px;
   font-style: italic;
   font-weight: 300;
-  color: #c8bfb0;
+  color: var(--ink);
   line-height: 1.55;
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--teal);
   padding-left: 24px;
   margin-top: 32px;
 }
 .authority-right {}
 .proof-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: #ffffff;
+  border: 1px solid var(--border);
   border-radius: 5px;
   padding: 28px 32px;
   margin-bottom: 14px;
@@ -413,15 +450,15 @@ body {
   font-size: 9px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--teal);
   margin-bottom: 10px;
 }
 .proof-text {
   font-size: 14px;
-  color: #a09585;
+  color: var(--muted);
   line-height: 1.7;
 }
-.proof-text strong { color: #e8e0d5; }
+.proof-text strong { color: var(--ink); }
 
 /* ─── ④ PROGRAMS ─── */
 .programs {
@@ -468,7 +505,7 @@ body {
 }
 .program-card.featured {
   background: var(--ink-soft);
-  border-color: var(--gold);
+  border-color: var(--teal);
   grid-column: span 3;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -479,7 +516,7 @@ body {
 }
 .program-card.featured .program-card-top {
   border-bottom: none;
-  border-right: 1px solid #2a2620;
+  border-right: 1px solid rgba(0,0,0,0.12);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -493,7 +530,7 @@ body {
   color: var(--faint);
   margin-bottom: 12px;
 }
-.program-card.featured .program-tag { color: var(--gold); }
+.program-card.featured .program-tag { color: rgba(0,0,0,0.5); }
 .program-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -502,9 +539,9 @@ body {
   margin-bottom: 10px;
   line-height: 1.2;
 }
-.program-card.featured .program-name { font-size: 30px; color: #f5f0e8; }
+.program-card.featured .program-name { font-size: 30px; color: #ffffff; }
 .program-tagline { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.program-card.featured .program-tagline { font-size: 15px; color: #7a7060; }
+.program-card.featured .program-tagline { font-size: 15px; color: rgba(0,0,0,0.6); }
 .program-card-body {
   padding: 24px 30px 28px;
 }
@@ -524,9 +561,9 @@ body {
   border-bottom: 1px solid var(--cream);
   align-items: flex-start;
 }
-.program-card.featured .program-detail { color: #7a7060; border-color: #1e1c18; }
+.program-card.featured .program-detail { color: rgba(0,0,0,0.65); border-color: rgba(0,0,0,0.1); }
 .program-detail:last-of-type { border-bottom: none; }
-.pd-dot { color: var(--gold); font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+.pd-dot { color: var(--teal); font-size: 16px; line-height: 1; margin-top: 1px; flex-shrink: 0; font-weight: 300; }
 .program-meta {
   margin-top: 20px;
   display: flex;
@@ -539,17 +576,17 @@ body {
   letter-spacing: 0.1em;
   color: var(--faint);
 }
-.program-card.featured .program-sessions { color: #5a5245; }
+.program-card.featured .program-sessions { color: rgba(0,0,0,0.45); }
 .program-link {
   font-size: 12px;
-  color: var(--gold);
+  color: var(--teal);
   text-decoration: none;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid var(--gold-line);
+  border-bottom: 1px solid var(--teal-line);
   padding-bottom: 1px;
   transition: border-color 0.2s;
 }
-.program-link:hover { border-color: var(--gold); }
+.program-link:hover { border-color: var(--teal); }
 
 .core-note {
   background: var(--cream);
@@ -565,9 +602,10 @@ body {
 }
 .core-note strong { color: var(--ink); }
 
-/* ─── ⑤ CTA ─── */
+
+/* ─── ⑥ CTA ─── */
 .cta-section {
-  background: var(--ink-soft);
+  background: var(--teal);
   padding: 120px 72px;
   position: relative;
   overflow: hidden;
@@ -579,7 +617,7 @@ body {
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 800px; height: 400px;
-  background: radial-gradient(ellipse, rgba(176,125,58,0.1) 0%, transparent 65%);
+  background: radial-gradient(ellipse, rgba(255,255,255,0.15) 0%, transparent 65%);
   pointer-events: none;
 }
 .cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
@@ -588,7 +626,7 @@ body {
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: rgba(0,0,0,0.55);
   margin-bottom: 20px;
 }
 .cta-h2 {
@@ -596,13 +634,13 @@ body {
   font-size: clamp(36px, 4vw, 56px);
   font-weight: 300;
   font-style: italic;
-  color: #f5f0e8;
+  color: #ffffff;
   line-height: 1.2;
   margin-bottom: 20px;
 }
 .cta-sub {
   font-size: 15px;
-  color: #7a7060;
+  color: rgba(0,0,0,0.6);
   line-height: 1.75;
   margin-bottom: 48px;
 }
@@ -615,8 +653,8 @@ body {
   margin-bottom: 48px;
 }
 .btn-large {
-  background: var(--gold);
-  color: #fff;
+  background: #111111;
+  color: #ffffff;
   padding: 16px 36px;
   border-radius: 3px;
   font-size: 14px;
@@ -626,30 +664,30 @@ body {
   transition: background 0.2s, transform 0.15s;
   display: inline-block;
 }
-.btn-large:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-large:hover { background: #333333; transform: translateY(-1px); }
 .btn-large-ghost {
-  color: #8a8070;
+  color: rgba(0,0,0,0.65);
   font-size: 14px;
   text-decoration: none;
-  border-bottom: 1px solid #3a3630;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
   padding-bottom: 2px;
   transition: color 0.2s, border-color 0.2s;
 }
-.btn-large-ghost:hover { color: #f5f0e8; border-color: #8a8070; }
+.btn-large-ghost:hover { color: #ffffff; border-color: #8a8070; }
 
 .cta-qualifier {
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
   font-style: italic;
-  color: #5a5245;
+  color: rgba(0,0,0,0.55);
   line-height: 1.6;
-  border-top: 1px solid #1e1c18;
+  border-top: 1px solid rgba(0,0,0,0.15);
   padding-top: 32px;
 }
 
 /* ─── FOOTER ─── */
 footer {
-  background: var(--ink);
+  background: #f0f0f0; border-top: 1px solid var(--border);
   padding: 40px 72px;
   display: flex;
   align-items: center;
@@ -661,9 +699,9 @@ footer {
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
   font-weight: 300;
-  color: #5a5245;
+  color: #333333;
 }
-.footer-brand span { color: var(--gold); }
+.footer-brand span { color: var(--teal); font-style: italic; }
 .footer-links {
   display: flex;
   gap: 24px;
@@ -671,15 +709,15 @@ footer {
 }
 .footer-links a {
   font-size: 13px;
-  color: #3a3630;
+  color: #555555;
   text-decoration: none;
   transition: color 0.2s;
 }
-.footer-links a:hover { color: #8a8070; }
+.footer-links a:hover { color: #111111; }
 .footer-origin {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
-  color: #2a2620;
+  color: #888888;
   letter-spacing: 0.05em;
 }
 
@@ -715,6 +753,9 @@ footer {
 </head>
 <body>
 
+<!-- ─── EDIT BANNER ─── -->
+<div class="edit-banner">
+  <div class="edit-banner-text">⬡ CleanAIOS · cleanaios.com</div>
   <div class="edit-pills">
     <a class="edit-pill" href="#hero">Hero</a>
     <a class="edit-pill" href="#problem">Problem</a>
@@ -726,12 +767,12 @@ footer {
 
 <!-- ─── NAV ─── -->
 <nav class="nav" id="nav">
-  <a href="#" class="nav-brand">Clean<span>Stack</span> AI</a>
+  <a href="#" class="nav-brand">Clean<span>AIOS</span></a>
   <ul class="nav-links">
     <li><a href="#problem">The Problem</a></li>
     <li><a href="#programs">Programs</a></li>
     <li><a href="#authority">About</a></li>
-    <li><a href="#cta" class="nav-cta">Book a Call</a></li>
+    <li><a href="https://calendly.com/cleanaios" class="nav-cta" target="_blank">Book a Call</a></li>
   </ul>
 </nav>
 
@@ -740,7 +781,7 @@ footer {
 <!-- ─── ① HERO ─── -->
 <section class="hero" id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">CleanStack AI · Advisory Program</div>
+    <div class="hero-eyebrow">CleanAIOS · Advisory Program</div>
 
     <h1 class="hero-h1">
       A cleaning business<br>that runs itself<br>
@@ -748,11 +789,11 @@ footer {
     </h1>
 
     <p class="hero-sub">
-      You're not losing leads because of bad marketing. You're losing them because nothing runs without you. CleanStack AI fixes the system first — so every lead has somewhere to land.
+      You're not losing leads because of bad marketing. You're losing them because nothing runs without you. CleanAIOS fixes the system first — so every lead has somewhere to land.
     </p>
 
     <div class="hero-cta-group">
-      <a href="#cta" class="btn-primary">Book a Discovery Call →</a>
+      <a href="https://calendly.com/cleanaios" class="btn-primary" target="_blank">Book a Discovery Call →</a>
       <a href="#programs" class="btn-ghost">See the programs</a>
     </div>
   </div>
@@ -784,7 +825,7 @@ footer {
     </div>
     <div class="hero-origin">
       <div class="hero-origin-text">"I built this inside my own cleaning company first — then started teaching it to others."</div>
-      <div class="hero-origin-attr">Cecilia · Founder, CleanStack AI · Owner, Rosie Cleans LLC</div>
+      <div class="hero-origin-attr">Cecilia · Founder, CleanAIOS · Owner, Rosie Cleans LLC</div>
     </div>
   </div>
 </section>
@@ -795,6 +836,8 @@ footer {
     <div class="problem-left reveal">
       <div class="sec-eyebrow">The Problem</div>
       <h2 class="sec-h2">You're not short<br>on clients.<br><em>You're short on system.</em></h2>
+
+      <!-- ✏️ EDIT: Body copy — adjust tone if needed -->
       <p class="sec-body">
         Every lead that comes in after 6pm sits unanswered until morning — if it doesn't go cold first. Every booking confirmation, every follow-up, every cancellation response runs through you.
       </p>
@@ -803,45 +846,46 @@ footer {
       </p>
 
       <blockquote class="transition-line">
-        This is the ceiling every solo cleaning operator hits. It's not a hustle problem. It's a systems problem. And it's exactly what CleanStack AI was built to fix.
+        This is the ceiling every solo cleaning operator hits. It's not a hustle problem. It's a systems problem. And it's exactly what CleanAIOS was built to fix.
       </blockquote>
     </div>
 
     <div class="problem-right reveal">
       <ul class="pain-list">
+        <!-- ✏️ EDIT: Add, remove, or reword any pain point -->
         <li class="pain-item">
-          <div class="pain-icon"><span></span></div>
+          <div class="pain-icon">›</div>
           <div class="pain-text">
             <div class="pain-head">Leads go cold after hours</div>
             <div class="pain-sub">You're on a job. A lead fills out your form. By the time you see it, they've already booked someone else.</div>
           </div>
         </li>
         <li class="pain-item">
-          <div class="pain-icon"><span></span></div>
+          <div class="pain-icon">›</div>
           <div class="pain-text">
             <div class="pain-head">Manual follow-up keeps slipping</div>
             <div class="pain-sub">You've tried systems before. They worked for two weeks. Then life happened and you were back to texting between jobs.</div>
           </div>
         </li>
         <li class="pain-item">
-          <div class="pain-icon"><span></span></div>
+          <div class="pain-icon">›</div>
           <div class="pain-text">
             <div class="pain-head">Nothing moves without you</div>
             <div class="pain-sub">Every booking, every confirmation, every rescheduled job still runs through you. You can't take a day off without the business pausing.</div>
           </div>
         </li>
         <li class="pain-item">
-          <div class="pain-icon"><span></span></div>
+          <div class="pain-icon">›</div>
           <div class="pain-text">
-            <div class="pain-head">You're undercharging and you know it</div>
-            <div class="pain-sub">You haven't raised rates in over a year. You're afraid to lose clients. But the math isn't working and you feel it every time you look at the numbers.</div>
+            <div class="pain-head">You can feel the ceiling</div>
+            <div class="pain-sub">You can't add clients without adding hours. You're out of hours. The revenue isn't moving and you know why — but knowing doesn't fix it.</div>
           </div>
         </li>
         <li class="pain-item">
-          <div class="pain-icon"><span></span></div>
+          <div class="pain-icon">›</div>
           <div class="pain-text">
-            <div class="pain-head">Your Google reviews are great. Your follow-up system isn't.</div>
-            <div class="pain-sub">You do excellent work — clients love you. But leads who never heard back from you don't know that. They booked someone else.</div>
+            <div class="pain-head">You don't want a tech overhaul</div>
+            <div class="pain-sub">You want something that works, fits your business, and you can actually run without a degree in automation.</div>
           </div>
         </li>
       </ul>
@@ -854,7 +898,9 @@ footer {
   <div class="authority-inner">
     <div class="authority-left reveal">
       <div class="sec-eyebrow">Built Inside a Real Business First</div>
-      <h2 class="sec-h2" style="color:#f5f0e8">I'm not a consultant<br>who studied this.<br><em>I built it.</em></h2>
+      <h2 class="sec-h2" style="color:#111111">I'm not a consultant<br>who studied this.<br><em>I built it.</em></h2>
+
+      <!-- ✏️ EDIT: Authority copy — this is the most personal section, adjust freely -->
       <p class="authority-body-main">
         Rosie Cleans LLC serves Morris County, NJ. I was the bottleneck — late follow-ups, manual booking confirmations, leads going cold overnight. I built The Rosie System to fix it.
       </p>
@@ -862,7 +908,7 @@ footer {
         Lead follow-up automated. Client intake handled. After-hours coverage running without me touching it. Then other cleaning business owners started asking how I did it.
       </p>
       <p class="authority-body-main">
-        CleanStack AI is the answer.
+        CleanAIOS is the answer.
       </p>
 
       <blockquote class="authority-pull">
@@ -871,9 +917,10 @@ footer {
     </div>
 
     <div class="authority-right reveal">
+      <!-- ✏️ EDIT: Proof cards — swap in real client results when available -->
       <div class="proof-card">
         <div class="proof-label">The Rosie System</div>
-        <div class="proof-text">Built and running inside <strong>Rosie Cleans LLC</strong> — a residential cleaning company serving Morris County, NJ. The same system every CleanStack AI client builds. Not a case study. A live operation.</div>
+        <div class="proof-text">Built and running inside <strong>Rosie Cleans LLC</strong> — a residential cleaning company serving Morris County, NJ. The same system every CleanAIOS client builds. Not a case study. A live operation.</div>
       </div>
       <div class="proof-card">
         <div class="proof-label">What gets built</div>
@@ -896,6 +943,7 @@ footer {
         <h2 class="sec-h2">Three doors in.<br><em>One system at the end.</em></h2>
       </div>
       <div>
+        <!-- ✏️ EDIT: Intro line — adjust if needed -->
         <p class="programs-intro">You don't have to start at the beginning. You start where the pain is right now. Each program solves one problem completely — and leads naturally into the full system.</p>
       </div>
     </div>
@@ -910,13 +958,13 @@ footer {
           <div class="program-tagline">Build the operating foundation. Stop being the bottleneck. Run your business like a two-person team.</div>
         </div>
         <div class="program-card-body">
-          <div class="program-detail"><span class="pd-dot">◆</span>AI Hybrid Model Map — what you do vs. what AI does</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Three core SOPs documented and automated</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Personal prompt card — your business voice in Claude</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Daily operating rhythm you can run in 15 min/day</div>
+          <div class="program-detail"><span class="pd-dot">›</span>AI Hybrid Model Map — what you do vs. what AI does</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Three core SOPs documented and automated</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Personal prompt card — your business voice in Claude</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Daily operating rhythm you can run in 15 min/day</div>
           <div class="program-meta">
             <div class="program-sessions">4–5 sessions · ~30 days</div>
-            <a href="#cta" class="program-link">Get started →</a>
+            <a href="https://calendly.com/cleanaios" class="program-link" target="_blank">Get started →</a>
           </div>
         </div>
       </div>
@@ -929,13 +977,13 @@ footer {
           <div class="program-tagline">Know your real numbers. Charge what the business needs. Stop guessing.</div>
         </div>
         <div class="program-card-body">
-          <div class="program-detail"><span class="pd-dot">◆</span>Real cost-per-job calculation — not a guess</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Price floor document — the math, not the fear</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Rate increase script for existing clients</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Margin Stabilization Plugin — live, then yours to keep</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Real cost-per-job calculation — not a guess</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Price floor document — the math, not the fear</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Rate increase script for existing clients</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Margin Stabilization Plugin — live, then yours to keep</div>
           <div class="program-meta">
             <div class="program-sessions">4 sessions · ~30 days</div>
-            <a href="#cta" class="program-link">Get started →</a>
+            <a href="https://calendly.com/cleanaios" class="program-link" target="_blank">Get started →</a>
           </div>
         </div>
       </div>
@@ -948,13 +996,13 @@ footer {
           <div class="program-tagline">Know your market. Own your lane. Attract the clients who never ask about price.</div>
         </div>
         <div class="program-card-body">
-          <div class="program-detail"><span class="pd-dot">◆</span>Full local market competitive analysis</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Upper-tier client profile for your specific market</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Positioning statement + updated website copy</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Google Business Profile rewritten to attract the right client</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Full local market competitive analysis</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Upper-tier client profile for your specific market</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Positioning statement + updated website copy</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Google Business Profile rewritten to attract the right client</div>
           <div class="program-meta">
             <div class="program-sessions">3–4 sessions · ~30 days</div>
-            <a href="#cta" class="program-link">Get started →</a>
+            <a href="https://calendly.com/cleanaios" class="program-link" target="_blank">Get started →</a>
           </div>
         </div>
       </div>
@@ -963,24 +1011,25 @@ footer {
       <div class="program-card featured">
         <div class="program-card-top">
           <div class="program-tag">The Full System · 7 Modules</div>
-          <div class="program-name">CleanStack AI Core Program</div>
+          <div class="program-name">CleanAIOS Core Program</div>
           <div class="program-tagline">Build the system. Get out of the inbox. Keep the leads. Seven modules that take you from scattered and reactive to running a complete AI-powered intake and follow-up operation — built, tested, and running in your actual business.</div>
         </div>
         <div class="program-card-body">
-          <div class="program-detail"><span class="pd-dot">◆</span>Live intake + follow-up system built and tested</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>After-hours lead coverage — automated, in your voice</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Personal prompt card saved in your Claude project</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>Simple tracking dashboard you'll actually use</div>
-          <div class="program-detail"><span class="pd-dot">◆</span>90-day action plan for what comes next</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Live intake + follow-up system built and tested</div>
+          <div class="program-detail"><span class="pd-dot">›</span>After-hours lead coverage — automated, in your voice</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Personal prompt card saved in your Claude project</div>
+          <div class="program-detail"><span class="pd-dot">›</span>Simple tracking dashboard you'll actually use</div>
+          <div class="program-detail"><span class="pd-dot">›</span>90-day action plan for what comes next</div>
           <div class="program-meta">
-            <div class="program-sessions" style="color:#4a4438">7 modules · ~7 hours · Natural graduation from any standalone</div>
-            <a href="#cta" class="program-link" style="color:var(--gold-light); border-color:rgba(176,125,58,0.3)">Learn more →</a>
+            <div class="program-sessions" style="color:rgba(0,0,0,0.45)">7 modules · ~7 hours · Natural graduation from any standalone</div>
+            <a href="https://calendly.com/cleanaios" class="program-link" style="color:var(--teal-light); border-color:rgba(117,211,223,0.3)" target="_blank">Learn more →</a>
           </div>
         </div>
       </div>
 
     </div><!-- /program-grid -->
-    <div class="core-note reveal">
+
+<div class="core-note reveal">
       <span>⬡</span>
       <span><strong>Founding client rates now open.</strong> First cohort only — same program, reduced rate while case studies are built. Standalones from $997. Core Program from $2,500. Discovery call is always free.</span>
     </div>
@@ -988,19 +1037,21 @@ footer {
   </div>
 </section>
 
-<!-- ─── ⑤ CTA ─── -->
+
+<!-- ─── ⑥ CTA ─── -->
 <section class="cta-section" id="cta">
   <div class="cta-inner">
     <div class="cta-eyebrow">The Next Step</div>
+
     <h2 class="cta-h2">"If you're coachable and you implement, we should talk."</h2>
 
     <p class="cta-sub">
-      A 20-minute discovery call. No pitch — just a conversation about your current setup and whether CleanStack AI is the right fit. If it's not, I'll tell you that too.
+      A 20-minute discovery call. No pitch — just a conversation about your current setup and whether CleanAIOS is the right fit. If it's not, I'll tell you that too.
     </p>
 
     <div class="cta-buttons">
-      <a href="#" class="btn-large">Book a Discovery Call →</a>
-      <a href="#" class="btn-large-ghost">Start the QuickStart instead</a>
+      <a href="https://calendly.com/cleanaios" class="btn-large" target="_blank">Book a Discovery Call →</a>
+      <a href="https://cleanaios.com/quickstart" class="btn-large-ghost" target="_blank">Start the QuickStart instead →</a>
     </div>
 
     <div class="cta-qualifier">
@@ -1013,26 +1064,19 @@ footer {
 
 <!-- ─── FOOTER ─── -->
 <footer>
-  <div class="footer-brand">Clean<span>Stack</span> AI</div>
+  <div class="footer-brand">Clean<span>AIOS</span></div>
   <ul class="footer-links">
-    <li><a href="mailto:hello@cleanstackai.com">hello@cleanstackai.com</a></li>
-    <li><a href="#">CleanStackAI.com</a></li>
+<li><a href="/cdn-cgi/l/email-protection#b0d8d5dcdcdff0d3dcd5d1ded1d9dfc39ed3dfdd"><span class="__cf_email__" data-cfemail="7d15181111123d1e11181c131c14120e531e1210">[email&#160;protected]</span></a></li>
+    <li><a href="https://cleanaios.com" target="_blank">cleanaios.com</a></li>
   </ul>
   <div class="footer-origin">Built from The Rosie System · Rosie Cleans LLC · Morris County, NJ</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Nav scroll effect
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
 });
 
 // Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-reveals.forEach(r => observer.observe(r));
-</script>
-</body>
-</html>
+const reveals = document.querySelectorAll('.reve
